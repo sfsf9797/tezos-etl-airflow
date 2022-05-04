@@ -64,12 +64,13 @@ def build_export_dag(
     def copy_to_export_path(file_path, export_path):
         logging.info('Calling copy_to_export_path({}, {})'.format(file_path, export_path))
         filename = os.path.basename(file_path)
+        logging.info('Calling copy_to_export_path({})'.format(filename))
 
-        upload_to_gcs(
-            gcs_hook=cloud_storage_hook,
-            bucket=output_bucket,
-            object=export_path + filename,
-            filename=file_path)
+        # upload_to_gcs(
+        #     gcs_hook=cloud_storage_hook,
+        #     bucket=output_bucket,
+        #     object=export_path + filename,
+        #     filename=file_path)
 
     def get_block_range(tempdir, date, provider_uri):
         logging.info('Calling get_block_range_for_date({}, {}, ...)'.format(provider_uri, date))
